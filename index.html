@@ -1,187 +1,569 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhumi Sure | Smart Land Records</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f0f5f1;
-            color: #24352b;
-        }
+<title>Bhumi Sure | Smart Land Records</title>
 
-        header {
-            background: #14532d;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-        nav {
-            background: #166534;
-            padding: 15px;
-            text-align: center;
-        }
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f8f5;
+  color: #203b30;
+  line-height: 1.6;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 12px;
-        }
+header {
+  background: #124b36;
+  color: white;
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-        .hero {
-            text-align: center;
-            padding: 45px 20px;
-        }
+header h2 {
+  letter-spacing: 1px;
+}
 
-        .hero h2 {
-            color: #166534;
-            font-size: 32px;
-        }
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
 
-        .container {
-            max-width: 900px;
-            margin: auto;
-            padding: 20px;
-        }
+.hero {
+  padding: 70px 7%;
+  background: linear-gradient(120deg, #e2f3e7, #f8fbf8);
+}
 
-        .card {
-            background: white;
-            padding: 22px;
-            margin: 18px 0;
-            border-radius: 12px;
-            box-shadow: 0 3px 10px #00000015;
-        }
+.hero h1 {
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1.15;
+  margin-bottom: 18px;
+  color: #124b36;
+}
 
-        button {
-            background: #15803d;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 6px;
-            cursor: pointer;
-        }
+.hero h1 span {
+  color: #259363;
+}
 
-        input {
-            padding: 12px;
-            width: 70%;
-            max-width: 350px;
-            border: 1px solid #aaa;
-            border-radius: 6px;
-        }
+.hero p {
+  max-width: 650px;
+  color: #53685c;
+  font-size: 17px;
+  margin-bottom: 25px;
+}
 
-        footer {
-            background: #14532d;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+.button {
+  display: inline-block;
+  background: #168052;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background: #124b36;
+}
+
+section {
+  padding: 45px 7%;
+  scroll-margin-top: 20px;
+}
+
+.section-title {
+  font-size: 30px;
+  color: #124b36;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: #66766c;
+  margin-bottom: 25px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 30px;
+}
+
+.stat-card,
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid #dce9df;
+  box-shadow: 0 5px 18px rgba(20, 70, 45, 0.05);
+}
+
+.stat-card h3 {
+  color: #168052;
+  font-size: 30px;
+}
+
+.stat-card p {
+  color: #68786e;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card h3 {
+  color: #124b36;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #65766b;
+}
+
+.upload-box {
+  background: white;
+  padding: 25px;
+  border: 2px dashed #91bea1;
+  border-radius: 14px;
+  text-align: center;
+}
+
+input, select {
+  width: 100%;
+  padding: 12px;
+  margin: 7px 0 15px;
+  border: 1px solid #ccdcd0;
+  border-radius: 7px;
+  background: white;
+  font-size: 15px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.result {
+  background: #e4f5e9;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 15px;
+  color: #124b36;
+}
+
+.review-item {
+  background: white;
+  border: 1px solid #dce9df;
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.review-item p {
+  color: #65766b;
+  font-size: 14px;
+}
+
+.map {
+  background: #e2f0e3;
+  border: 1px solid #c6dfca;
+  border-radius: 15px;
+  padding: 25px;
+  min-height: 230px;
+  text-align: center;
+}
+
+.parcels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.parcel {
+  background: #b9dfbf;
+  border: 2px solid #6da87b;
+  padding: 25px 5px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+footer {
+  background: #124b36;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 25px;
+}
+
+@media (max-width: 700px) {
+  header {
+    padding: 16px 5%;
+  }
+
+  nav a {
+    margin: 0 10px 0 0;
+  }
+
+  .hero {
+    padding: 45px 5%;
+  }
+
+  section {
+    padding: 35px 5%;
+  }
+
+  .dashboard,
+  .card-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>🌱 BHUMI SURE</h1>
-        <p>Smart Land Records Digitization & Verification</p>
-    </header>
+<header>
+  <h2>🌿 BHUMI SURE</h2>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#search">Search Records</a>
-        <a href="#about">About Us</a>
-    </nav>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#features">Features</a>
+    <a href="#upload">Upload</a>
+    <a href="#review">Review</a>
+    <a href="#map">GIS Map</a>
+  </nav>
+</header>
 
-    <section class="hero" id="home">
-        <h2>Land Assured. Trust Secured.</h2>
-        <p>
-            An AI-powered platform concept for digitizing,
-            validating and verifying land records.
-        </p>
-        <a href="#features">
-            <button>Explore Features</button>
-        </a>
-    </section>
+<section class="hero" id="home">
+  <h1>Land Records,<br>
+  <span>Made Certain.</span></h1>
 
-    <main class="container">
+  <p>
+    An AI-powered land record digitization and verification
+    concept designed to improve data accuracy, transparency,
+    and access to land information.
+  </p>
 
-        <section class="card" id="features">
-            <h2>Our Key Features</h2>
+  <a href="#upload" class="button">
+    Explore the Prototype →
+  </a>
+</section>
 
-            <h3>📄 Smart Digitization</h3>
-            <p>Convert scanned land documents into digital records.</p>
+<section id="dashboard">
+  <h2 class="section-title">Dashboard Overview</h2>
+  <p class="section-description">
+    Sample statistics for the Bhumi Sure prototype.
+  </p>
 
-            <h3>🤖 AI Data Extraction</h3>
-            <p>Extract owner names, survey numbers, village names and land areas.</p>
+  <div class="dashboard">
+    <div class="stat-card">
+      <h3>248</h3>
+      <p>Total Records</p>
+    </div>
 
-            <h3>✅ Intelligent Validation</h3>
-            <p>Identify missing fields, duplicate entries and inconsistent information.</p>
+    <div class="stat-card">
+      <h3>192</h3>
+      <p>Verified Records</p>
+    </div>
 
-            <h3>👨‍💼 Human Verification</h3>
-            <p>Flag uncertain information for review by authorized officers.</p>
+    <div class="stat-card">
+      <h3>18</h3>
+      <p>Records Needing Review</p>
+    </div>
+  </div>
+</section>
 
-            <h3>🗺️ GIS Dashboard</h3>
-            <p>Provide a foundation for searching and viewing land records on a map.</p>
-        </section>
+<section id="features">
+  <h2 class="section-title">Our Key Features</h2>
+  <p class="section-description">
+    A single workflow for digitization, validation and review.
+  </p>
 
-        <section class="card" id="search">
-            <h2>Search Land Records</h2>
-            <p>Enter an owner name or survey number to try the demo.</p>
+  <div class="card-grid">
+    <div class="card">
+      <h3>📄 Smart Digitization</h3>
+      <p>
+        Organize scanned and photographed land documents
+        into a digital workflow.
+      </p>
+    </div>
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Enter owner name or survey number"
-            >
+    <div class="card">
+      <h3>✨ AI Data Extraction</h3>
+      <p>
+        Preview owner names, survey numbers, land area
+        and village details.
+      </p>
+    </div>
 
-            <br><br>
+    <div class="card">
+      <h3>🔎 Intelligent Validation</h3>
+      <p>
+        Highlight missing fields and possible
+        inconsistencies for checking.
+      </p>
+    </div>
 
-            <button onclick="searchRecord()">Search</button>
+    <div class="card">
+      <h3>📊 Confidence Scoring</h3>
+      <p>
+        Indicate uncertain information so it can
+        receive additional review.
+      </p>
+    </div>
 
-            <p id="result"></p>
-        </section>
+    <div class="card">
+      <h3>👩‍💼 Officer Verification</h3>
+      <p>
+        Provide a review queue for records that
+        need human attention.
+      </p>
+    </div>
 
-        <section class="card" id="about">
-            <h2>About Bhumi Sure</h2>
-            <p>
-                Bhumi Sure is a proposed smart land-record platform
-                designed to improve data accuracy, transparency and
-                accessibility through AI-assisted processing and
-                human verification.
-            </p>
-            <p>
-                This prototype demonstrates the website interface.
-                It does not connect to official land records or perform
-                actual AI verification.
-            </p>
-        </section>
+    <div class="card">
+      <h3>🗺️ GIS Dashboard</h3>
+      <p>
+        Display illustrative land parcels and
+        record status in one interface.
+      </p>
+    </div>
+  </div>
+</section>
+<section id="upload">
+  <h2 class="section-title">Upload & Extract Land Records</h2>
+  <p class="section-description">
+    Upload a document and review the sample extracted information.
+  </p>
 
-    </main>
+  <div class="card">
+    <div class="upload-box">
+      <h3>📄 Upload Your Land Document</h3>
+      <p>Select a PDF or image from your device.</p>
+      <br>
+      <input type="file" id="landFile"
+        accept=".pdf,.png,.jpg,.jpeg">
+      <button class="button" onclick="extractRecord()">
+        Extract Information
+      </button>
+      <p id="fileMessage" class="result">
+        No file selected yet.
+      </p>
+    </div>
 
-    <footer>
-        <p>Bhumi Sure | Smart India Hackathon 2026</p>
-        <p>Team Code Mobs</p>
-    </footer>
+    <br>
+    <h3>Extracted Information (Editable)</h3>
+    <br>
 
-    <script>
-        function searchRecord() {
-            const input = document.getElementById("searchInput").value.trim();
-            const result = document.getElementById("result");
+    <div class="form-grid">
+      <div>
+        <label for="owner">Owner Name</label>
+        <input id="owner" placeholder="Enter owner name">
+      </div>
 
-            if (input === "") {
-                result.textContent = "Please enter an owner name or survey number.";
-            } else {
-                result.textContent =
-                    "Demo only: No live land records are connected yet. " +
-                    "Your search was: " + input;
-            }
-        }
-    </script>
+      <div>
+        <label for="survey">Survey Number</label>
+        <input id="survey" placeholder="Enter survey number">
+      </div>
+
+      <div>
+        <label for="area">Land Area (acres)</label>
+        <input id="area" type="number" min="0" step="0.01"
+          placeholder="Enter area">
+      </div>
+
+      <div>
+        <label for="village">Village</label>
+        <input id="village" placeholder="Enter village">
+      </div>
+    </div>
+
+    <button class="button" onclick="validateRecord()">
+      Validate Record
+    </button>
+
+    <p id="validationMessage" class="result">
+      Fill in the details and validate your record.
+    </p>
+  </div>
+</section>
+
+<section id="review">
+  <h2 class="section-title">Officer Review Queue</h2>
+  <p class="section-description">
+    Sample records waiting for verification.
+  </p>
+
+  <div class="review-item" id="record1">
+    <div>
+      <h3>Survey Record 221/4</h3>
+      <p>Sample record · Requires review</p>
+    </div>
+    <div>
+      <button class="button"
+        onclick="reviewRecord('record1','Approved in demo')">
+        Approve
+      </button>
+      <button class="button"
+        onclick="reviewRecord('record1','Correction requested')">
+        Request Correction
+      </button>
+    </div>
+  </div>
+
+  <div class="review-item" id="record2">
+    <div>
+      <h3>Survey Record 88/1B</h3>
+      <p>Sample record · Missing information</p>
+    </div>
+    <div>
+      <button class="button"
+        onclick="reviewRecord('record2','Approved in demo')">
+        Approve
+      </button>
+      <button class="button"
+        onclick="reviewRecord('record2','Correction requested')">
+        Request Correction
+      </button>
+    </div>
+  </div>
+
+  <p id="reviewMessage" class="result" hidden></p>
+</section>
+
+<section id="map">
+  <h2 class="section-title">GIS Land Map</h2>
+  <p class="section-description">
+    Illustrative land parcels for the prototype.
+    These are not official land boundaries.
+  </p>
+
+  <div class="map">
+    <h3>🗺️ Sample Village Parcel View</h3>
+
+    <div class="parcels">
+      <div class="parcel">Survey 104/2A</div>
+      <div class="parcel">Survey 105/1</div>
+      <div class="parcel">Survey 106/3</div>
+      <div class="parcel">Survey 221/4</div>
+      <div class="parcel">Survey 222/1</div>
+      <div class="parcel">Survey 223/2</div>
+    </div>
+
+    <p style="margin-top:20px">
+      Green parcels represent illustrative sample records.
+    </p>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="section-title">About Bhumi Sure</h2>
+  <div class="card">
+    <p>
+      Bhumi Sure is a proposed AI-powered land record
+      digitization and verification system developed for
+      Smart India Hackathon 2026, Problem Statement 26018.
+    </p>
+    <br>
+    <p>
+      The planned system combines document digitization,
+      AI-assisted data extraction, validation, confidence
+      scoring, officer review and GIS visualization.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <h3>🌿 BHUMI SURE</h3>
+  <p>Team Code Mobs · Smart India Hackathon 2026</p>
+  <p>Interactive frontend prototype · Sample data only</p>
+</footer>
+
+<script>
+function extractRecord() {
+  const file = document.getElementById("landFile").files[0];
+  const message = document.getElementById("fileMessage");
+
+  if (!file) {
+    message.textContent = "Please select a PDF or image first.";
+    return;
+  }
+
+  message.textContent =
+    "Selected: " + file.name +
+    ". This prototype does not read the document automatically. " +
+    "Please enter the details manually below.";
+
+  document.getElementById("owner").focus();
+}
+
+function validateRecord() {
+  const owner = document.getElementById("owner").value.trim();
+  const survey = document.getElementById("survey").value.trim();
+  const area = document.getElementById("area").value;
+  const village = document.getElementById("village").value.trim();
+  const message = document.getElementById("validationMessage");
+
+  if (!owner || !survey || !area || !village) {
+    message.textContent =
+      "Please complete all four fields before validation.";
+    message.style.background = "#fff0e8";
+    return;
+  }
+
+  if (!Number.isFinite(Number(area)) || Number(area) <= 0) {
+    message.textContent =
+      "Please enter a land area greater than zero.";
+    message.style.background = "#fff0e8";
+    return;
+  }
+
+  message.textContent =
+    "Basic validation passed! All required fields are filled. " +
+    "Official verification by an authorized officer is still required.";
+  message.style.background = "#e4f5e9";
+}
+
+function reviewRecord(id, action) {
+  const record = document.getElementById(id);
+  const message = document.getElementById("reviewMessage");
+
+  record.querySelector("p").textContent = action;
+  message.hidden = false;
+  message.textContent =
+    action + ". This is a demo action only; no official record was changed.";
+}
+</script>
 
 </body>
 </html>
