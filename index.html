@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhumi Sure | Smart Land Records</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f0f5f1;
+            color: #24352b;
+        }
+
+        header {
+            background: #14532d;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        nav {
+            background: #166534;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 12px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .hero h2 {
+            color: #166534;
+            font-size: 32px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            margin: 18px 0;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px #00000015;
+        }
+
+        button {
+            background: #15803d;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 12px;
+            width: 70%;
+            max-width: 350px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        footer {
+            background: #14532d;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>🌱 BHUMI SURE</h1>
+        <p>Smart Land Records Digitization & Verification</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#search">Search Records</a>
+        <a href="#about">About Us</a>
+    </nav>
+
+    <section class="hero" id="home">
+        <h2>Land Assured. Trust Secured.</h2>
+        <p>
+            An AI-powered platform concept for digitizing,
+            validating and verifying land records.
+        </p>
+        <a href="#features">
+            <button>Explore Features</button>
+        </a>
+    </section>
+
+    <main class="container">
+
+        <section class="card" id="features">
+            <h2>Our Key Features</h2>
+
+            <h3>📄 Smart Digitization</h3>
+            <p>Convert scanned land documents into digital records.</p>
+
+            <h3>🤖 AI Data Extraction</h3>
+            <p>Extract owner names, survey numbers, village names and land areas.</p>
+
+            <h3>✅ Intelligent Validation</h3>
+            <p>Identify missing fields, duplicate entries and inconsistent information.</p>
+
+            <h3>👨‍💼 Human Verification</h3>
+            <p>Flag uncertain information for review by authorized officers.</p>
+
+            <h3>🗺️ GIS Dashboard</h3>
+            <p>Provide a foundation for searching and viewing land records on a map.</p>
+        </section>
+
+        <section class="card" id="search">
+            <h2>Search Land Records</h2>
+            <p>Enter an owner name or survey number to try the demo.</p>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Enter owner name or survey number"
+            >
+
+            <br><br>
+
+            <button onclick="searchRecord()">Search</button>
+
+            <p id="result"></p>
+        </section>
+
+        <section class="card" id="about">
+            <h2>About Bhumi Sure</h2>
+            <p>
+                Bhumi Sure is a proposed smart land-record platform
+                designed to improve data accuracy, transparency and
+                accessibility through AI-assisted processing and
+                human verification.
+            </p>
+            <p>
+                This prototype demonstrates the website interface.
+                It does not connect to official land records or perform
+                actual AI verification.
+            </p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Bhumi Sure | Smart India Hackathon 2026</p>
+        <p>Team Code Mobs</p>
+    </footer>
+
+    <script>
+        function searchRecord() {
+            const input = document.getElementById("searchInput").value.trim();
+            const result = document.getElementById("result");
+
+            if (input === "") {
+                result.textContent = "Please enter an owner name or survey number.";
+            } else {
+                result.textContent =
+                    "Demo only: No live land records are connected yet. " +
+                    "Your search was: " + input;
+            }
+        }
+    </script>
+
+</body>
+</html>
